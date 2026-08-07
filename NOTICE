@@ -1,0 +1,17 @@
+DocParse includes / depends on the following third-party software (MIT):
+
+--- pdf-inspector ---
+Copyright (c) 2026 Firecrawl
+https://github.com/firecrawl/pdf-inspector
+License: MIT
+
+--- anydoc (firecrawl-anydoc) ---
+Copyright (c) 2026 Sideguide Technologies Inc.
+https://github.com/firecrawl/anydoc
+License: MIT
+
+Full MIT license texts are available in the upstream repositories.
+
+--- RapidOCR / onnxruntime / pypdfium2 ---
+Optional OCR stack (see their respective licenses on PyPI).
+Installed via: pip install -e ".[ocr]"

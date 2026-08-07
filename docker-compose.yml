@@ -1,0 +1,20 @@
+services:
+  docparse:
+    build: .
+    image: docparse:latest
+    container_name: docparse
+    ports:
+      - "8787:8787"
+    environment:
+      DOCPARSE_OCR_PROVIDER: rapid
+      DOCPARSE_OCR_SCALE: "2.0"
+      DOCPARSE_OCR_MAX_PAGES: "50"
+      DOCPARSE_JOB_WORKERS: "1"
+      DOCPARSE_MAX_UPLOAD_MB: "50"
+      # DOCPARSE_API_KEYS: "key1,key2"   # 留空 = 不启用鉴权
+    volumes:
+      - docparse-data:/data
+    restart: unless-stopped
+
+volumes:
+  docparse-data:

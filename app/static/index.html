@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DocParse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="frame">
+    <header class="masthead">
+      <div class="masthead-left">
+        <span class="mark" aria-hidden="true"></span>
+        <div>
+          <h1 class="wordmark">DocParse</h1>
+          <p class="kicker" data-i18n="kicker">文档 → Markdown 转换台</p>
+        </div>
+      </div>
+      <div class="masthead-right">
+        <span id="health" class="dot dot-unknown" data-i18n-title="healthUnknown" title="服务状态"></span>
+        <button id="langToggle" class="btn-mini lang-toggle" type="button" data-i18n-aria="langAria" aria-label="切换语言">EN</button>
+        <a class="nav-link" href="/docs" target="_blank" rel="noopener">API</a>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="col col-in" aria-label="输入">
+        <div class="col-head">
+          <span class="col-label" data-i18n="colIn">01 · 输入</span>
+        </div>
+
+        <div id="drop" class="dropzone" tabindex="0" role="button" data-i18n-aria="dropAria" aria-label="选择或拖入文件">
+          <div class="dropzone-inner">
+            <div class="drop-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <p class="drop-title" data-i18n="dropTitle">拖入文件</p>
+            <p class="drop-hint" data-i18n="dropHint">或点击浏览 · PDF / Office / EPUB / CSV</p>
+            <p id="fileName" class="file-chip" hidden></p>
+          </div>
+          <input id="fileInput" type="file" hidden />
+        </div>
+
+        <div class="mode-row" role="radiogroup" aria-label="解析模式">
+          <label class="mode">
+            <input type="radio" name="mode" value="async" checked />
+            <span class="mode-body">
+              <strong data-i18n="modeAsync">异步</strong>
+              <small data-i18n="modeAsyncHint">大文件 / OCR</small>
+            </span>
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="sync" />
+            <span class="mode-body">
+              <strong data-i18n="modeSync">同步</strong>
+              <small data-i18n="modeSyncHint">小文件即时返回</small>
+            </span>
+          </label>
+        </div>
+
+        <button id="submit" class="cta" type="button" disabled>
+          <span class="cta-text" data-i18n="cta">开始转换</span>
+          <span class="cta-spinner" aria-hidden="true"></span>
+        </button>
+
+        <p id="formError" class="error" hidden></p>
+      </section>
+
+      <section class="col col-out" aria-label="输出">
+        <div class="col-head col-head-out">
+          <span class="col-label" data-i18n="colOut">02 · 输出</span>
+          <div class="out-actions">
+            <button id="copyBtn" class="btn-mini" type="button" data-i18n="copy" disabled>复制</button>
+            <button id="downloadBtn" class="btn-mini" type="button" data-i18n="download" disabled>下载 .md</button>
+          </div>
+        </div>
+
+        <div class="statusline">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText" data-i18n="idle">空闲</span>
+        </div>
+
+        <div id="metaBox" class="meta" hidden></div>
+
+        <div class="paper">
+          <article id="preview" class="preview" data-i18n="previewEmpty">转换结果将显示在这里</article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>pdf · docx · xlsx · pptx · epub · csv · rtf</span>
+      <span class="sep">·</span>
+      <span data-i18n="footOcr">文本页直抽 / 扫描页 OCR</span>
+    </footer>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
