@@ -6,6 +6,12 @@
 - [anydoc](https://github.com/firecrawl/anydoc)（MIT）— Office / EPUB / CSV 等 → Markdown
 - **RapidOCR**（可选）— 扫描页本地 OCR（中文友好）
 
+## 界面
+
+| 中文 | English |
+|------|---------|
+| ![中文界面](docs/screenshots/ui-zh.png) | ![English UI](docs/screenshots/ui-en.png) |
+
 ## 快速开始
 
 ```powershell
