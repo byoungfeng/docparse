@@ -1,5 +1,7 @@
 # DocParse
 
+[English](README_EN.md) | [中文](README.md)
+
 统一文档 → Markdown API。底层使用 Firecrawl 开源库：
 
 - [pdf-inspector](https://github.com/firecrawl/pdf-inspector)（MIT）— PDF 分类与文本抽取
